@@ -1,4 +1,5 @@
 import 'package:manejo_estado_provider/provider/heroinfo.dart';
+import 'package:manejo_estado_provider/provider/villanosinfo.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:manejo_estado_provider/pages/home_page.dart';
@@ -13,6 +14,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => HeroeInfo()), //lista
+        //idem (context) ->(_)
+        ChangeNotifierProvider(create: (_) => VillanoInfo()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

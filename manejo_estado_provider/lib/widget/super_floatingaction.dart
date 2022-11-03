@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/heroinfo.dart';
+import '../provider/villanosinfo.dart';
 
 class SuperFloatingAction extends StatelessWidget {
   const SuperFloatingAction({super.key});
@@ -9,6 +10,7 @@ class SuperFloatingAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final heroesinfo = Provider.of<HeroeInfo>(context);
+    final villanoinfo = Provider.of<VillanoInfo>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
@@ -17,6 +19,7 @@ class SuperFloatingAction extends StatelessWidget {
             backgroundColor: Colors.red,
             onPressed: () => {
                   heroesinfo.setHeroe = 'SUPERMAN',
+                  villanoinfo.setVillano = "Lex Luthor"
                 }),
         SizedBox(
           height: 10.0,
@@ -24,7 +27,10 @@ class SuperFloatingAction extends StatelessWidget {
         FloatingActionButton(
             child: Icon(Icons.ac_unit_outlined),
             backgroundColor: Colors.blue,
-            onPressed: () => {heroesinfo.setHeroe = "OTRO HEROE"}),
+            onPressed: () => {
+                  heroesinfo.setHeroe = "IRONMAN",
+                  villanoinfo.setVillano = "El Mandarin"
+                }),
       ],
     );
   }
