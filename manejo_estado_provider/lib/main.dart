@@ -10,10 +10,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (context) => HeroeInfo(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HeroeInfo()),
+      ],
       child: MaterialApp(
-        title: 'Material App',
+        debugShowCheckedModeBanner: false,
+        title: 'Provider App',
         initialRoute: 'home',
         routes: {
           "home": (context) => Home(),

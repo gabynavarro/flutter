@@ -1,6 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class HeroeInfo with ChangeNotifier {
+class HeroeInfo with ChangeNotifier, DiagnosticableTreeMixin {
   String _heroe = "Capitan America";
 
   get getHeroe {

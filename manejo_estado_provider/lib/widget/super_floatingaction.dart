@@ -16,7 +16,7 @@ class SuperFloatingAction extends StatelessWidget {
             child: Icon(Icons.accessible_forward_rounded),
             backgroundColor: Colors.red,
             onPressed: () => {
-                  heroesinfo.setHeroe = 'otro heroe',
+                  heroesinfo.setHeroe = 'SUPERMAN',
                 }),
         SizedBox(
           height: 10.0,
@@ -24,7 +24,7 @@ class SuperFloatingAction extends StatelessWidget {
         FloatingActionButton(
             child: Icon(Icons.ac_unit_outlined),
             backgroundColor: Colors.blue,
-            onPressed: () {}),
+            onPressed: () => {heroesinfo.setHeroe = "OTRO HEROE"}),
       ],
     );
   }
