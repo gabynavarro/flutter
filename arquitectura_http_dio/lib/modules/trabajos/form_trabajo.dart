@@ -113,7 +113,7 @@ class FormTrabajo extends GetView<TrabajoController> {
   Widget _crearValor() {
     return TextFormField(
       initialValue: controller.trabajo.valor.toString(),
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
+      keyboardType: const TextInputType.numberWithOptions(decimal: true),
       decoration: InputDecoration(
         labelText: 'Precio',
         fillColor: Colors.grey[200],
@@ -151,15 +151,15 @@ class FormTrabajo extends GetView<TrabajoController> {
       onChanged: (v) {
         controller.remoto1.value = v!;
       },
-      title: Text("Remoto"),
-      subtitle: Text("Solo Trabajo Remoto"),
+      title: const Text("Remoto"),
+      subtitle: const Text("Solo Trabajo Remoto"),
     );
   }
 
   Widget _crearDisponible() {
     return SwitchListTile(
       value: controller.activo1.value,
-      title: Text('Trabajo Activo/Inactivo'),
+      title: const Text('Trabajo Activo/Inactivo'),
       activeColor: Colors.deepPurple,
       onChanged: (value) => {controller.activo1.value = value},
     );

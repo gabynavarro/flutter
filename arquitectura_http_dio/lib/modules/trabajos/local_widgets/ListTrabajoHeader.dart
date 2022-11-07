@@ -30,8 +30,8 @@ class ListTrabajoHeader extends GetView<TrabajoController> {
                         borderRadius: BorderRadius.all(Radius.circular(25.0)))),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
             ),
           ],
         ),

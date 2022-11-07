@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue),
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color.fromARGB(255, 91, 18, 104)),
+                        const Color.fromARGB(255, 10, 58, 38)),
                   ),
                   onPressed: () async {
                     Get.offAllNamed(AppRoutes.FORMULARIO);
@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
                     foregroundColor:
                         MaterialStateProperty.all<Color>(Colors.blue),
                     backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color.fromARGB(255, 91, 18, 104)),
+                        const Color.fromARGB(255, 10, 58, 38)),
                   ),
                   onPressed: () async {
                     Get.offAllNamed(AppRoutes.LISTA_TRABAJO);

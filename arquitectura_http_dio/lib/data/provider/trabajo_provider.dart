@@ -18,7 +18,7 @@ class TrabajoProvider {
     if (response.statusCode == 200) {
       Map data = response.data;
 
-      if (data == null) return [];
+      if (data.isEmpty) return [];
       final List<Trabajo> listaTrabajos = [];
 
       data.forEach((id, trbjo) {
@@ -34,8 +34,8 @@ class TrabajoProvider {
   }
 
   Future<List<Trabajo>> getFiltroTrabajos(String nombre1) async {
-    var param1 = '"' + nombre1 + '"';
-    var param2 = '"' + nombre1 + '\uf8ff' + '"';
+    var param1 = '"$nombre1"';
+    var param2 = '"$nombre1\uf8ff"';
     final url1 =
         '$_url/trabajos.json?orderBy="nombre"&startAt=$param1&endAt=$param2';
 
@@ -47,7 +47,7 @@ class TrabajoProvider {
     if (response.statusCode == 200) {
       Map data = response.data;
 
-      if (data == null) return [];
+      if (data.isEmpty) return [];
       final List<Trabajo> listaTrabajos = [];
 
       data.forEach((id, trbjo) {
