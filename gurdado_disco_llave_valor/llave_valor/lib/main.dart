@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:llave_valor/service/local_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  await LocalStorage.configurePrefs();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // Este widget es la raíz de la aplicación.
@@ -30,7 +35,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String _nserie = "";
   String _image = "";
   List<String>? items;
-
+  String clave = "";
+  List<String> nuevalist = [];
   @override
   void initState() {
     super.initState();
@@ -43,7 +49,22 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       //_someMap = ((prefs.getInt('someMap'))) as Map<String, int>;
       _counter = (prefs.getInt('counter') ?? 0) + 1;
-      items = prefs.getStringList('items') ?? [];
+      items = prefs.getStringList("12");
+
+      prefs.getStringList('12') == null
+          ? prefs.setStringList("12", <String>[])
+          : prefs.setStringList("12", items!);
+
+      if ((prefs.getStringList("12")) != null) {
+        print("lista cargada: ");
+        print(items);
+      }
+
+      // if (LocalStorage.prefs.getKeys().isNotEmpty) {
+      //   //
+      //   print("el key no esta vacio");
+      //   //   print(items);
+      // }
     });
   }
 
@@ -51,20 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
   _incrementCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
-      //  _counter = (prefs.getInt('counter') ?? 0) + 1;
-      _counter = _counter + 1;
+      _counter = (prefs.getInt('counter') ?? 0) + 1;
+      items = prefs.getStringList("12");
 
-      items = (prefs.getStringList('items') ?? []);
+      nuevalist = items!;
+      nuevalist.add("nuevo");
 
-      //    prefs.setStringList("items", <String>["${_counter}"]);
+      prefs.setStringList('12', nuevalist!);
       //
-      //  print(prefs.getStringList("items"));
-      items.add("$_counter");
+      items = prefs.getStringList("12");
 
-      prefs.setStringList('items', <String>['Earth', 'Moon', 'Sun']);
-      // _someMap['${_counter}'] = _counter;
-
-      //  prefs.setInt('counter', _counter);
       print(items);
     });
   }
